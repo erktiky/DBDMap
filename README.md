@@ -4,8 +4,9 @@
 It uses Pytesseract OCR to scan for text and detect the map name once the loading ends.
 ## Usage
 ### Installation
-1. Download the **.zip** from the releases page.
-2. Unzip the files into a new folder.
+1. Install [Tesseract](https://github.com/UB-Mannheim/tesseract/wiki).
+2. Download the **.zip** from the releases page.
+3. Unzip the files into a new folder.
 ### Configuration
 1. Open the config.ini size in Notepad (or any other text editor).
 2. Choose or find a new SCREENSHOT_REGION using the information provided in config.ini.
