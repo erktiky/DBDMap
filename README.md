@@ -22,3 +22,5 @@ After taking a screenshot, it displays the pre-processed and post-processed vers
 When the images are focused, press any mouse button to close them and continue using the tool.
 ## Credits
 All the images of the maps are taken from [Hens's Website](https://hens333.com/callouts).
+## Example
+<img alt="image" src="https://github.com/user-attachments/assets/fe320b8c-b379-4d89-b51a-303655e62d52"/>
