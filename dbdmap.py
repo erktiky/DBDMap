@@ -52,6 +52,14 @@ minimap_size_x = round((monitor.width / 6) * MINIMAP_SCALE)
 minimap_size_y = round((monitor.width / 6) * MINIMAP_SCALE)
 
 class ImageWindow:
+    def make_clickthrough(self, hwnd):
+        # Windows-specific code to make window click-through
+        import ctypes
+        hwnd = ctypes.windll.user32.GetParent(self.root.winfo_id())
+        styles = ctypes.windll.user32.GetWindowLongW(hwnd, -20)
+        styles = styles | 0x80000 | 0x20  # WS_EX_LAYERED | WS_EX_TRANSPARENT
+        ctypes.windll.user32.SetWindowLongW(hwnd, -20, styles)
+
     def __init__(self):
         if len(monitors) > 1 and SECONDARY_MONITOR_MODE:
         # Create always-on-top, borderless window
@@ -82,6 +90,8 @@ class ImageWindow:
             # Canvas for the image
             self.label = tk.Label(self.root, bg='green')
             self.label.pack(fill='both', expand=True)
+
+            self.root.after(100, self.make_clickthrough, self.root.winfo_id())
 
         # Mode flags
         self.preview_mode = False
