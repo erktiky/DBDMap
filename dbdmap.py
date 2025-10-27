@@ -73,7 +73,7 @@ class ImageWindow:
             self.root.configure(bg='#574dad')
             # Canvas for the image
             self.label = tk.Label(self.root, bg='#574dad')
-            self.label.pack(fill='#574dad', expand=True)
+            self.label.pack(fill='both', expand=True)
         else:
             self.root = tk.Tk()
             self.root.title("Image Display")
