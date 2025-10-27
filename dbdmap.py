@@ -196,9 +196,6 @@ class ImageWindow:
         text = pytesseract.image_to_string(processed, config='--psm 6').strip()
         if not text:
             print("❌ No text detected.")
-            if not AUTO_UPDATE:
-                self.label.config(image=None)
-                self.label.image = None
             return
 
         formatted = text.upper().replace(" ", "_").replace("|", "I").replace("0", "O")
@@ -214,9 +211,6 @@ class ImageWindow:
 
         if not image_path:
             print(f"❌ Image not found for '{formatted}'")
-            if not AUTO_UPDATE:
-                self.label.config(image=None)
-                self.label.image = None
             return
 
         print(f"✅ Found image: {image_path}")
