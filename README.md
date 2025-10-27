@@ -3,7 +3,7 @@
 **DBDMap** is a simple tool for **Dead By Daylight** that automatically displays a minimap of the current map your playing on in the corner of the game.
 It uses Pytesseract OCR to scan for text and detect the map name once the loading ends.
 ## Usage
-### Installation
+### Downloading
 1. Download the **.zip** from the [releases](https://github.com/erktiky/dbdmap/releases/tag/release) page.
 2. Unzip the files into a new folder.
 ### Updating (if only the executable was updated)
