@@ -11,7 +11,7 @@ It uses Pytesseract OCR to scan for text and detect the map name once the loadin
 2. Replace the old **DBDMap.exe** with the **new one**.
 ### Configuration
 1. Open the config.ini file in Notepad (or any other text editor).
-2. Choose or find a new SCREENSHOT_REGION using the information provided in config.ini.
+2. Choose or find a new SCREENSHOT_REGION using the information provided in config.ini (regions for 1920x1080p and 2560x1440p have been provided and tested so they should work without any additional configuration).
 3. Adjust any other settings to your liking, such as the minimap size and position, whether the minimap should auto-update or not, or the keybind for updating if manual updating is chosen.
 ## Modes (Switch with F10)
 ### Game Mode (Normal Mode)
