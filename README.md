@@ -23,4 +23,4 @@ When the images are focused, press any mouse button to close them and continue u
 ## Credits
 All the images of the maps are taken from [Hens's Website](https://hens333.com/callouts).
 ## Example
-<img alt="image" src="https://github.com/user-attachments/assets/fe320b8c-b379-4d89-b51a-303655e62d52"/>
+<img alt="image" src="https://github.com/user-attachments/assets/30ac9a95-f74f-4f0a-9aa1-8d11dafccf7e"/>
