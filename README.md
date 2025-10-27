@@ -21,7 +21,7 @@ Use when configurating the SCREENSHOT_REGION. Heavily recommend to disable AUTO_
 After taking a screenshot, it displays the pre-processed and post-processed versions so you can see if it's positioned correctly and adjust the area of the screenshot.
 When the images are focused, press any mouse button to close them and continue using the tool.
 ## Credits
-All the images of the maps are taken from [Hens's Website](https://hens333.com/callouts).
+All the images of the maps are from [Hens's Website](https://hens333.com/callouts).
 ## About me
 This project is actually my first contact with Python and probably my first semi-serious public project, so the code is quite messy and most likely inefficient, but personally I find this tool extremely useful so I decided to share it here.
 I'm open to any tips or critique as I'm very happy to extend my knowledge, and if you have any ideas on how to improve DBDMap or have some suggestions regarding new features, then feel free to [share them](https://github.com/erktiky/DBDMap/discussions/categories/suggestions)!
