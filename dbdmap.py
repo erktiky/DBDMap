@@ -69,11 +69,11 @@ class ImageWindow:
             self.root.overrideredirect(True)
             self.root.geometry(f"{round(0.5 * monitor.width)}x{monitor.height}+{monitor.x}+{monitor.y}")
             self.root.attributes('-alpha', 1)
-            self.root.wm_attributes('-transparentcolor', 'green')
-            self.root.configure(bg='green')
+            self.root.wm_attributes('-transparentcolor', "#574dad")
+            self.root.configure(bg='#574dad')
             # Canvas for the image
-            self.label = tk.Label(self.root, bg='green')
-            self.label.pack(fill='both', expand=True)
+            self.label = tk.Label(self.root, bg='#574dad')
+            self.label.pack(fill='#574dad', expand=True)
         else:
             self.root = tk.Tk()
             self.root.title("Image Display")
@@ -85,13 +85,13 @@ class ImageWindow:
                 minimap_pos_x = monitor.width - (minimap_size_x + MINIMAP_OFFSET_X)
             self.root.geometry(f"{minimap_size_x}x{minimap_size_y}+{minimap_pos_x}+{MINIMAP_OFFSET_Y}")
             self.root.attributes('-alpha', MINIMAP_ALPHA)
-            self.root.wm_attributes('-transparentcolor', 'green')
-            self.root.configure(bg='green')
+            self.root.wm_attributes('-transparentcolor', '#574dad')
+            self.root.configure(bg='#574dad', bd=0, highlightthickness=0)
             # Canvas for the image
-            self.label = tk.Label(self.root, bg='green')
+            self.label = tk.Label(self.root, bg='#574dad', borderwidth=0, highlightthickness=0)
             self.label.pack(fill='both', expand=True)
 
-            self.root.after(100, self.make_clickthrough, self.root.winfo_id())
+            self.root.after(500, self.make_clickthrough, self.root.winfo_id())
 
         # Mode flags
         self.preview_mode = False
@@ -113,6 +113,10 @@ class ImageWindow:
             while True:
                 keyboard.wait(UPDATE_KEYBIND)
                 self.update_image()
+                time.sleep(0.5)
+                self.update_image()
+                time.sleep(0.5)
+                self.update_image()
         else:
             print("Auto-update mode enabled. Updating image every second...")
             while True: 
@@ -132,6 +136,8 @@ class ImageWindow:
 
     def listen_for_f10(self):
         while True:
+            if AUTO_UPDATE:
+                return  # Disable in auto-update mode
             keyboard.wait('F10')
             self.preview_mode = not self.preview_mode
             mode = "Preview Mode" if self.preview_mode else "Game Mode"
@@ -167,7 +173,22 @@ class ImageWindow:
 
         return thresh
 
+    update_counter = 0
     def update_image(self):
+        self.update_counter += 1
+        if self.update_counter >= 20:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            self.update_counter = 0
+            if AUTO_UPDATE:
+                print("🔹 Auto-update mode enabled. Cannot use Preview Mode.")
+                print("Auto-update mode enabled. Updating image every second...")
+            else:
+                print("🔹 Running in Game Mode. Press F10 to toggle Preview Mode.")
+                print(f"Press {UPDATE_KEYBIND} to capture text and load image...")
+            print(f"Press {RESET_KEYBIND} to clear the image...")
+            
+
+
         screenshot = pyautogui.screenshot(region=SCREENSHOT_REGION)
         processed = self.preprocess_for_ocr(screenshot)
 
