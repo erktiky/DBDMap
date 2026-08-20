@@ -1,0 +1,25 @@
+# Core runtime dependencies.
+#
+# The OCR engine itself (tesseract) is a native program and is NOT installed by
+# pip - see the README for the one-line command for your platform.
+
+PyQt6>=6.5
+Pillow>=10.0
+numpy>=1.24
+opencv-python>=4.8
+pytesseract>=0.3.10
+psutil>=5.9
+keyboard>=0.13.5
+
+# Screen capture on X11 and Windows. Unusable on Wayland (a grab of the Xwayland
+# root window comes back black), where DBDMap asks the compositor instead.
+mss>=9.0
+
+# xdg-desktop-portal client, used as the universal Wayland capture fallback for
+# compositors with no native screenshot tool. Pure Python, no build step.
+jeepney>=0.8; sys_platform == "linux"
+
+# Optional extras
+# --------------------------------------------------------------------------
+# pyautogui - alternative capture backend, used automatically if mss is missing.
+#             On Linux it additionally requires gnome-screenshot to be installed.

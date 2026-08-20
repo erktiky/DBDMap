@@ -1,0 +1,83 @@
+; DBDMap configuration.
+;
+; This file is generated automatically the first time you run DBDMap - you only
+; need to copy this example if you want to skip the setup questions or tune
+; something that setup does not ask about.
+;
+; Copy to config.ini and edit.
+
+[General]
+; Display name as reported by your compositor / Qt (e.g. DP-1, HDMI-A-1,
+; \\.\DISPLAY1). Used to pick the right screen when you have several.
+monitor_name = DP-1
+
+; Fallback if the name does not match: 0 = first screen, 1 = second, ...
+monitor_index = 0
+
+; PHYSICAL resolution of that monitor, i.e. what the GPU actually outputs.
+; On a 150%-scaled 4K screen this is 3840x2160, not 2560x1440.
+resolution = 2560x1440
+
+; Display scale factor. 1.0 on an unscaled setup, 1.25 for 125%, and so on.
+monitor_scale = 1.0
+
+; Position of the monitor in the desktop layout, in logical coordinates.
+monitor_x = 0
+monitor_y = 0
+
+; Clears the overlay and returns ReShade to the default preset.
+reset_hotkey = F7
+
+; How close the OCR text has to be to a known map name, in percent.
+; Lower it if maps are not detected, raise it if the wrong map is detected.
+detection_threshold = 85
+
+; Seconds between OCR attempts while waiting for a map.
+ocr_interval = 1.0
+
+; Seconds to idle after a successful detection.
+pause_after_match = 5.0
+
+[ReShade]
+; Set to False if you only want the map overlay and no preset switching.
+automate_reshade = True
+
+; Full path to the ReShade.ini next to the game executable.
+; Windows: C:\...\Dead by Daylight\DeadByDaylight\Binaries\Win64\ReShade.ini
+; Linux:   the same path inside your Steam library.
+reshade_path = ""
+
+[Minimap]
+; left or right
+minimap_position = left
+minimap_width = 350
+minimap_height = 350
+minimap_offset_x = 25
+minimap_offset_y = 25
+
+; 0-100
+minimap_opacity = 100
+
+[OBS]
+; Switches OBS scenes when a match starts and when you press the reset hotkey.
+; Requires the obs-cmd binary on PATH.
+enabled = False
+websocket = obsws://127.0.0.1:4455/YOUR_PASSWORD
+scene_playing = Playing
+scene_waiting = Waiting
+
+[Advanced]
+; auto, or force one of:
+;   grim              wlroots compositors (Hyprland, Sway, COSMIC, Wayfire, river)
+;   mss               X11 and Windows
+;   pyautogui         alternative to mss
+;   spectacle         KDE Plasma on Wayland
+;   gnome-shell       GNOME on Wayland, via its D-Bus API
+;   gnome-screenshot  GNOME on Wayland, via the standalone tool
+;   portal            xdg-desktop-portal; needs `pip install jeepney` and grants
+;                     a permission prompt on first use
+capture_backend = auto
+
+; Leave empty to auto-detect. Set this if tesseract is installed somewhere
+; unusual, e.g. C:\Tools\Tesseract-OCR\tesseract.exe
+tesseract_path =
