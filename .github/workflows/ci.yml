@@ -22,9 +22,9 @@ jobs:
             python: '3.12'
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python }}
 
@@ -57,7 +57,7 @@ jobs:
     name: Lint install scripts
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: shellcheck install.sh
         run: |
           sudo apt-get update && sudo apt-get install -y shellcheck

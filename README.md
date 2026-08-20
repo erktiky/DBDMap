@@ -1,5 +1,8 @@
 # DBDMap
 
+[![CI](https://github.com/erktiky/DBDMap/actions/workflows/ci.yml/badge.svg)](https://github.com/erktiky/DBDMap/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 Automatic map overlay and ReShade preset switcher for **Dead by Daylight**.
 
 DBDMap watches the loading screen, reads the map name with OCR, and the moment it
